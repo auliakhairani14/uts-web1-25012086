@@ -20,3 +20,10 @@ if (session_status() === PHP_SESSION_NONE) {
         </nav>
     </header>
     <main>
+        <?php
+    // Menampilkan Flash Message jika ada di session
+    if (isset($_SESSION['flash_message'])) {
+        echo '<div style="background-color: #d1ecf1; color: #0c5460; padding: 12px; border-left: 4px solid #17a2b8; margin-bottom: 20px; border-radius: 4px; font-weight: bold;">' . htmlspecialchars($_SESSION['flash_message']) . '</div>';
+        unset($_SESSION['flash_message']); // Langsung dihapus agar hanya tampil 1 kali sesuai aturan UTS
+    }
+    ?>
